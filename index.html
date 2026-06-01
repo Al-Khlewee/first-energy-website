@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>First Energy — Integrated Solutions</title>
+<meta name="description" content="First Energy — Oil Services, General Contracting, General Trading, Real Estate Development & Investments, and Public Transport." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f5f5f7;
+    --ink:#1d1d1f;
+    --ink-soft:#6e6e73;
+    --line:#d2d2d7;
+    --nav-h:48px;
+    --ease:cubic-bezier(.4,0,.2,1);
+    /* Section accents */
+    --c-oil:#0a2540;
+    --c-oil-2:#1b6ca8;
+    --c-contracting:#b45309;
+    --c-contracting-2:#f59e0b;
+    --c-trading:#065f46;
+    --c-trading-2:#10b981;
+    --c-realestate:#3730a3;
+    --c-realestate-2:#8b5cf6;
+    --c-transport:#9f1239;
+    --c-transport-2:#fb7185;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  html[dir="rtl"] body{
+    font-family:'Tajawal',-apple-system,'Segoe UI',sans-serif;
+  }
+
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Language visibility ---------- */
+  html[lang="en"] [data-ar]{display:none}
+  html[lang="ar"] [data-en]{display:none}
+
+  /* ---------- Navigation ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    height:var(--nav-h);
+    background:rgba(255,255,255,.72);
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid rgba(0,0,0,.08);
+    display:flex;align-items:center;
+    padding:0 clamp(16px,5vw,40px);
+    gap:8px;
+  }
+  .nav__logo{
+    font-weight:700;font-size:18px;letter-spacing:-.02em;
+    display:flex;align-items:center;gap:8px;white-space:nowrap;
+  }
+  .nav__logo .spark{
+    width:18px;height:18px;border-radius:50%;
+    background:conic-gradient(from 180deg,#1b6ca8,#10b981,#f59e0b,#fb7185,#8b5cf6,#1b6ca8);
+  }
+  .nav__links{
+    display:flex;gap:clamp(10px,2.4vw,28px);
+    margin-inline-start:auto;align-items:center;
+    font-size:13px;color:var(--ink);font-weight:400;
+  }
+  .nav__links a{opacity:.85;transition:opacity .2s var(--ease)}
+  .nav__links a:hover{opacity:1}
+  .nav__links .menu-item{display:none}
+  @media(min-width:900px){.nav__links .menu-item{display:inline}}
+
+  .lang-btn{
+    border:1px solid var(--line);
+    background:transparent;color:var(--ink);
+    font:inherit;font-size:12px;font-weight:600;
+    padding:5px 12px;border-radius:980px;cursor:pointer;
+    transition:background .2s var(--ease),color .2s var(--ease);
+    white-space:nowrap;
+  }
+  .lang-btn:hover{background:var(--ink);color:#fff}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:calc(var(--nav-h) + 40px) 20px 60px;
+    background:
+      radial-gradient(120% 80% at 50% -10%,rgba(27,108,168,.18),transparent 60%),
+      radial-gradient(80% 60% at 10% 110%,rgba(16,185,129,.14),transparent 60%),
+      radial-gradient(80% 60% at 90% 110%,rgba(139,92,246,.14),transparent 60%),
+      linear-gradient(180deg,#fbfbfd,#ffffff);
+    position:relative;overflow:hidden;
+  }
+  .hero__eyebrow{
+    font-size:15px;font-weight:600;letter-spacing:.04em;
+    background:linear-gradient(90deg,#1b6ca8,#10b981);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:clamp(40px,8vw,88px);
+    line-height:1.05;letter-spacing:-.03em;font-weight:800;
+    max-width:14ch;margin-bottom:22px;
+  }
+  .hero p{
+    font-size:clamp(17px,2.4vw,23px);
+    color:var(--ink-soft);max-width:40ch;margin-bottom:34px;font-weight:400;
+  }
+  .hero__cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{
+    font:inherit;font-weight:500;font-size:16px;
+    padding:12px 26px;border-radius:980px;cursor:pointer;
+    transition:transform .2s var(--ease),background .2s var(--ease),box-shadow .2s var(--ease);
+    border:1px solid transparent;
+  }
+  .btn--primary{background:var(--ink);color:#fff}
+  .btn--primary:hover{transform:scale(1.04);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+  .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn--ghost:hover{background:var(--bg-soft)}
+
+  /* scroll cue */
+  .scroll-cue{
+    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    width:24px;height:38px;border:2px solid var(--line);border-radius:14px;
+    display:flex;justify-content:center;padding-top:7px;
+  }
+  .scroll-cue::after{content:"";width:4px;height:8px;border-radius:2px;background:var(--ink-soft);animation:scrolly 1.6s infinite}
+  @keyframes scrolly{0%{opacity:0;transform:translateY(0)}40%{opacity:1}80%{opacity:0;transform:translateY(10px)}}
+
+  /* ---------- Section base ---------- */
+  .section{
+    padding:clamp(80px,12vh,140px) clamp(20px,6vw,80px);
+    position:relative;
+  }
+  .section__inner{max-width:1180px;margin:0 auto}
+  .section__grid{
+    display:grid;grid-template-columns:1fr;gap:clamp(36px,5vw,72px);align-items:center;
+  }
+  @media(min-width:880px){
+    .section__grid{grid-template-columns:1fr 1fr}
+    .section--reverse .section__media{order:2}
+  }
+
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 14px;border-radius:980px;margin-bottom:22px;
+  }
+  .kicker .dot{width:8px;height:8px;border-radius:50%}
+  .section h2{
+    font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.025em;
+    font-weight:800;margin-bottom:20px;
+  }
+  .section .lead{
+    font-size:clamp(17px,2vw,20px);color:var(--ink-soft);margin-bottom:30px;max-width:46ch;
+  }
+
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    font-size:14px;font-weight:500;padding:9px 16px;border-radius:980px;
+    border:1px solid var(--line);background:#fff;
+    display:flex;align-items:center;gap:8px;
+    transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+  }
+  .chip:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.08)}
+  .chip svg{width:16px;height:16px;flex:none}
+
+  /* media card */
+  .section__media{
+    position:relative;border-radius:28px;overflow:hidden;
+    aspect-ratio:4/3.2;box-shadow:0 30px 60px -25px rgba(0,0,0,.4);
+    isolation:isolate;
+  }
+  .section__media img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .9s var(--ease);
+  }
+  .section__media:hover img{transform:scale(1.06)}
+  .section__media .glow{
+    position:absolute;inset:0;z-index:1;mix-blend-mode:multiply;opacity:.42;
+  }
+  .section__media .badge{
+    position:absolute;z-index:2;bottom:18px;left:18px;right:18px;
+    background:rgba(255,255,255,.82);backdrop-filter:blur(14px);
+    border-radius:16px;padding:14px 18px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    font-size:14px;font-weight:600;
+  }
+  html[dir="rtl"] .section__media .badge{left:18px;right:18px}
+  .badge .stat{display:flex;flex-direction:column;line-height:1.2}
+  .badge .stat b{font-size:20px;letter-spacing:-.02em}
+  .badge .stat span{font-size:12px;color:var(--ink-soft);font-weight:500}
+
+  /* tinted section backgrounds */
+  .section--tint{background:var(--bg-soft)}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Strip / values ---------- */
+  .values{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:10px}
+  .value{padding:28px;border:1px solid var(--line);border-radius:22px;background:#fff;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+  .value:hover{transform:translateY(-6px);box-shadow:0 20px 40px -20px rgba(0,0,0,.25)}
+  .value .ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:#fff}
+  .value h3{font-size:19px;margin-bottom:8px;letter-spacing:-.01em}
+  .value p{font-size:15px;color:var(--ink-soft)}
+
+  /* ---------- Contact / Footer ---------- */
+  .contact{
+    text-align:center;
+    background:linear-gradient(180deg,#0a0a0a,#1a1a1f);color:#fff;
+    padding:clamp(80px,12vh,130px) 20px;
+  }
+  .contact h2{font-size:clamp(32px,5vw,54px);letter-spacing:-.025em;font-weight:800;margin-bottom:18px}
+  .contact p{color:#a1a1a6;font-size:clamp(16px,2vw,19px);max-width:44ch;margin:0 auto 32px}
+  .contact .btn--primary{background:#fff;color:#0a0a0a}
+  .contact .btn--primary:hover{background:#e8e8ed}
+
+  footer{background:#000;color:#86868b;font-size:12.5px;padding:34px 20px;text-align:center;line-height:1.9}
+  footer .fmenu{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-bottom:14px}
+  footer .fmenu a:hover{color:#fff}
+  footer .copyright{border-top:1px solid #1d1d1f;padding-top:16px;margin-top:8px}
+
+  /* section number watermark */
+  .section__num{
+    font-size:clamp(80px,18vw,200px);font-weight:800;line-height:1;
+    letter-spacing:-.04em;opacity:.05;position:absolute;
+    top:24px;inset-inline-end:clamp(20px,6vw,80px);pointer-events:none;z-index:0;
+  }
+  .section__inner{position:relative;z-index:1}
+
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    *{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <a href="#top" class="nav__logo"><span class="spark"></span>First Energy</a>
+  <div class="nav__links">
+    <a class="menu-item" href="#oil" data-en>Oil Services</a><a class="menu-item" href="#oil" data-ar>الخدمات النفطية</a>
+    <a class="menu-item" href="#contracting" data-en>Contracting</a><a class="menu-item" href="#contracting" data-ar>المقاولات</a>
+    <a class="menu-item" href="#trading" data-en>Trading</a><a class="menu-item" href="#trading" data-ar>التجارة</a>
+    <a class="menu-item" href="#realestate" data-en>Real Estate</a><a class="menu-item" href="#realestate" data-ar>العقارات</a>
+    <a class="menu-item" href="#transport" data-en>Transport</a><a class="menu-item" href="#transport" data-ar>النقل</a>
+    <button class="lang-btn" id="langToggle" aria-label="Switch language">
+      <span data-en>العربية</span><span data-ar>English</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero__eyebrow" data-en>FIRST ENERGY GROUP</div>
+  <div class="hero__eyebrow" data-ar>مجموعة الطاقة الأولى</div>
+  <h1 data-en>Powering progress.<br>Building futures.</h1>
+  <h1 data-ar>نُشغّل التقدّم.<br>ونبني المستقبل.</h1>
+  <p data-en>Five integrated divisions. One trusted partner — across energy, construction, trade, real estate, and mobility.</p>
+  <p data-ar>خمسة قطاعات متكاملة وشريك واحد موثوق — في الطاقة والإنشاءات والتجارة والعقارات والنقل.</p>
+  <div class="hero__cta">
+    <a class="btn btn--primary" href="#oil"><span data-en>Explore divisions</span><span data-ar>استكشف القطاعات</span></a>
+    <a class="btn btn--ghost" href="#contact"><span data-en>Contact us</span><span data-ar>تواصل معنا</span></a>
+  </div>
+  <a href="#oil" class="scroll-cue" aria-hidden="true"></a>
+</header>
+
+<!-- ============ SECTION 1 — OIL SERVICES ============ -->
+<section class="section" id="oil" style="--accent:var(--c-oil);--accent2:var(--c-oil-2)">
+  <div class="section__num">01</div>
+  <div class="section__inner">
+    <div class="section__grid">
+      <div class="section__media reveal">
+        <span class="glow" style="background:linear-gradient(135deg,var(--c-oil),var(--c-oil-2))"></span>
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80" alt="Oil field operations at dusk" loading="lazy" />
+        <div class="badge">
+          <div class="stat"><b data-en>24/7</b><b data-ar>٢٤/٧</b><span data-en>Field operations</span><span data-ar>عمليات ميدانية</span></div>
+          <div class="stat"><b>HSE</b><span data-en>Safety certified</span><span data-ar>معتمد للسلامة</span></div>
+        </div>
+      </div>
+      <div class="section__body reveal">
+        <span class="kicker" style="color:var(--c-oil-2);background:rgba(27,108,168,.1)"><span class="dot" style="background:var(--c-oil-2)"></span><span data-en>Section One</span><span data-ar>القطاع الأول</span></span>
+        <h2 data-en>Oil Services</h2>
+        <h2 data-ar>الخدمات النفطية</h2>
+        <p class="lead" data-en>End-to-end upstream and downstream support — engineered for uptime, safety, and efficiency in the harshest environments.</p>
+        <p class="lead" data-ar>دعم متكامل لعمليات الإنتاج والتكرير — مصمّم لضمان الاستمرارية والسلامة والكفاءة في أصعب البيئات.</p>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-oil-2)" stroke-width="2"><path d="M12 2v20M5 9l7-7 7 7"/></svg><span data-en>Drilling support</span><span data-ar>دعم الحفر</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-oil-2)" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span data-en>Well maintenance</span><span data-ar>صيانة الآبار</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-oil-2)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span data-en>Pipeline services</span><span data-ar>خدمات الأنابيب</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-oil-2)" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg><span data-en>Equipment supply</span><span data-ar>توريد المعدات</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-oil-2)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-en>HSE consulting</span><span data-ar>استشارات السلامة</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — GENERAL CONTRACTING ============ -->
+<section class="section section--tint section--reverse" id="contracting" style="--accent:var(--c-contracting);--accent2:var(--c-contracting-2)">
+  <div class="section__num">02</div>
+  <div class="section__inner">
+    <div class="section__grid">
+      <div class="section__media reveal">
+        <span class="glow" style="background:linear-gradient(135deg,var(--c-contracting),var(--c-contracting-2))"></span>
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Construction site with cranes" loading="lazy" />
+        <div class="badge">
+          <div class="stat"><b data-en>150+</b><b data-ar>+١٥٠</b><span data-en>Projects delivered</span><span data-ar>مشروع منجز</span></div>
+          <div class="stat"><b>ISO</b><span data-en>Quality assured</span><span data-ar>جودة معتمدة</span></div>
+        </div>
+      </div>
+      <div class="section__body reveal">
+        <span class="kicker" style="color:var(--c-contracting);background:rgba(245,158,11,.12)"><span class="dot" style="background:var(--c-contracting-2)"></span><span data-en>Section Two</span><span data-ar>القطاع الثاني</span></span>
+        <h2 data-en>General Contracting</h2>
+        <h2 data-ar>المقاولات العامة</h2>
+        <p class="lead" data-en>From groundbreaking to handover — civil, infrastructure, and industrial builds delivered on time and to spec.</p>
+        <p class="lead" data-ar>من وضع الأساس حتى التسليم — مشاريع مدنية وبنية تحتية وصناعية تُنجز في وقتها وبأعلى المواصفات.</p>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-contracting)" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg><span data-en>Civil works</span><span data-ar>الأعمال المدنية</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-contracting)" stroke-width="2"><path d="M2 12h20M2 12l4-4M2 12l4 4"/></svg><span data-en>Infrastructure</span><span data-ar>البنية التحتية</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-contracting)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span data-en>Building construction</span><span data-ar>تشييد المباني</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-contracting)" stroke-width="2"><path d="M14 7l-9 9-3 3 3-3 9-9zM14 7l3-3 3 3-3 3"/></svg><span data-en>MEP & finishing</span><span data-ar>التشطيبات والأنظمة</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-contracting)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span data-en>Project management</span><span data-ar>إدارة المشاريع</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — GENERAL TRADING ============ -->
+<section class="section" id="trading" style="--accent:var(--c-trading);--accent2:var(--c-trading-2)">
+  <div class="section__num">03</div>
+  <div class="section__inner">
+    <div class="section__grid">
+      <div class="section__media reveal">
+        <span class="glow" style="background:linear-gradient(135deg,var(--c-trading),var(--c-trading-2))"></span>
+        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1200&q=80" alt="Shipping containers at port" loading="lazy" />
+        <div class="badge">
+          <div class="stat"><b data-en>40+</b><b data-ar>+٤٠</b><span data-en>Global partners</span><span data-ar>شريك عالمي</span></div>
+          <div class="stat"><b data-en>Worldwide</b><b data-ar>عالمي</b><span data-en>Logistics network</span><span data-ar>شبكة لوجستية</span></div>
+        </div>
+      </div>
+      <div class="section__body reveal">
+        <span class="kicker" style="color:var(--c-trading);background:rgba(16,185,129,.12)"><span class="dot" style="background:var(--c-trading-2)"></span><span data-en>Section Three</span><span data-ar>القطاع الثالث</span></span>
+        <h2 data-en>General Trading</h2>
+        <h2 data-ar>التجارة العامة</h2>
+        <p class="lead" data-en>A reliable supply chain connecting trusted manufacturers to local markets — sourcing, import, and distribution.</p>
+        <p class="lead" data-ar>سلسلة إمداد موثوقة تربط المصنّعين المعتمدين بالأسواق المحلية — توريد واستيراد وتوزيع.</p>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-trading)" stroke-width="2"><path d="M3 7h18l-2 12H5L3 7zM8 7V5a4 4 0 018 0v2"/></svg><span data-en>Wholesale supply</span><span data-ar>التوريد بالجملة</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-trading)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span data-en>Import & export</span><span data-ar>الاستيراد والتصدير</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-trading)" stroke-width="2"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 9h4l3 3v6h-7"/></svg><span data-en>Logistics</span><span data-ar>اللوجستيات</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-trading)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-en>Industrial materials</span><span data-ar>المواد الصناعية</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-trading)" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg><span data-en>Procurement</span><span data-ar>المشتريات</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 — REAL ESTATE ============ -->
+<section class="section section--tint section--reverse" id="realestate" style="--accent:var(--c-realestate);--accent2:var(--c-realestate-2)">
+  <div class="section__num">04</div>
+  <div class="section__inner">
+    <div class="section__grid">
+      <div class="section__media reveal">
+        <span class="glow" style="background:linear-gradient(135deg,var(--c-realestate),var(--c-realestate-2))"></span>
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="Modern residential towers" loading="lazy" />
+        <div class="badge">
+          <div class="stat"><b data-en>1M+ m²</b><b data-ar>+مليون م²</b><span data-en>Developed area</span><span data-ar>مساحة مطوّرة</span></div>
+          <div class="stat"><b data-en>Prime</b><b data-ar>متميّزة</b><span data-en>Locations</span><span data-ar>مواقع</span></div>
+        </div>
+      </div>
+      <div class="section__body reveal">
+        <span class="kicker" style="color:var(--c-realestate);background:rgba(139,92,246,.12)"><span class="dot" style="background:var(--c-realestate-2)"></span><span data-en>Section Four</span><span data-ar>القطاع الرابع</span></span>
+        <h2 data-en>Real Estate Development &amp; Investments</h2>
+        <h2 data-ar>التطوير العقاري والاستثمار</h2>
+        <p class="lead" data-en>Designing places people love to live and work — residential, commercial, and mixed-use developments with lasting value.</p>
+        <p class="lead" data-ar>نصمّم أماكن يحبّها الناس للعيش والعمل — مشاريع سكنية وتجارية ومتعددة الاستخدامات ذات قيمة دائمة.</p>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-realestate)" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><span data-en>Residential</span><span data-ar>سكني</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-realestate)" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 7h.01M15 7h.01M9 12h.01M15 12h.01"/></svg><span data-en>Commercial</span><span data-ar>تجاري</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-realestate)" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg><span data-en>Investments</span><span data-ar>استثمارات</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-realestate)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5a2.5 2.5 0 015 0c0 2-3 2-3 4"/></svg><span data-en>Asset management</span><span data-ar>إدارة الأصول</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-realestate)" stroke-width="2"><path d="M3 9l9-6 9 6v11H3z"/></svg><span data-en>Mixed-use</span><span data-ar>متعدد الاستخدامات</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 — PUBLIC TRANSPORT ============ -->
+<section class="section" id="transport" style="--accent:var(--c-transport);--accent2:var(--c-transport-2)">
+  <div class="section__num">05</div>
+  <div class="section__inner">
+    <div class="section__grid">
+      <div class="section__media reveal">
+        <span class="glow" style="background:linear-gradient(135deg,var(--c-transport),var(--c-transport-2))"></span>
+        <img src="https://images.unsplash.com/photo-1556122071-e404eaedb77f?auto=format&fit=crop&w=1200&q=80" alt="City buses in motion" loading="lazy" />
+        <div class="badge">
+          <div class="stat"><b data-en>2M+</b><b data-ar>+مليونا</b><span data-en>Riders / year</span><span data-ar>راكب سنوياً</span></div>
+          <div class="stat"><b data-en>Green</b><b data-ar>أخضر</b><span data-en>Fleet program</span><span data-ar>أسطول صديق للبيئة</span></div>
+        </div>
+      </div>
+      <div class="section__body reveal">
+        <span class="kicker" style="color:var(--c-transport);background:rgba(251,113,133,.14)"><span class="dot" style="background:var(--c-transport-2)"></span><span data-en>Section Five</span><span data-ar>القطاع الخامس</span></span>
+        <h2 data-en>Public Transport</h2>
+        <h2 data-ar>النقل العام</h2>
+        <p class="lead" data-en>Moving cities forward — safe, modern, and connected mobility services for everyday journeys.</p>
+        <p class="lead" data-ar>نُحرّك المدن نحو الأمام — خدمات نقل آمنة وحديثة ومترابطة لرحلات الحياة اليومية.</p>
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-transport)" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 11h18M7 21l2-4M17 21l-2-4M8 7h8"/></svg><span data-en>Bus networks</span><span data-ar>شبكات الحافلات</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-transport)" stroke-width="2"><path d="M12 2a8 8 0 018 8c0 5-8 12-8 12S4 15 4 10a8 8 0 018-8z"/><circle cx="12" cy="10" r="2"/></svg><span data-en>Route planning</span><span data-ar>تخطيط المسارات</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-transport)" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg><span data-en>Fleet management</span><span data-ar>إدارة الأسطول</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-transport)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg><span data-en>Smart ticketing</span><span data-ar>التذاكر الذكية</span></span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-transport)" stroke-width="2"><path d="M5 12a7 7 0 0114 0M8 12a4 4 0 018 0M12 12v6"/></svg><span data-en>Smart mobility</span><span data-ar>التنقل الذكي</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUES ============ -->
+<section class="section section--tint">
+  <div class="section__inner">
+    <div class="section__body reveal" style="text-align:center;max-width:680px;margin:0 auto 50px">
+      <h2 data-en>One group. Built on trust.</h2>
+      <h2 data-ar>مجموعة واحدة. أساسها الثقة.</h2>
+      <p class="lead" style="margin:0 auto" data-en>The principles that guide every division of First Energy.</p>
+      <p class="lead" style="margin:0 auto" data-ar>المبادئ التي توجّه كل قطاع من قطاعات الطاقة الأولى.</p>
+    </div>
+    <div class="values">
+      <div class="value reveal">
+        <div class="ico" style="background:linear-gradient(135deg,var(--c-oil),var(--c-oil-2))"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
+        <h3 data-en>Safety first</h3><h3 data-ar>السلامة أولاً</h3>
+        <p data-en>Zero-harm culture across every site and service.</p>
+        <p data-ar>ثقافة "لا ضرر" في كل موقع وخدمة.</p>
+      </div>
+      <div class="value reveal">
+        <div class="ico" style="background:linear-gradient(135deg,var(--c-trading),var(--c-trading-2))"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20"/></svg></div>
+        <h3 data-en>Sustainability</h3><h3 data-ar>الاستدامة</h3>
+        <p data-en>Responsible growth that respects people and planet.</p>
+        <p data-ar>نموّ مسؤول يحترم الإنسان والبيئة.</p>
+      </div>
+      <div class="value reveal">
+        <div class="ico" style="background:linear-gradient(135deg,var(--c-contracting),var(--c-contracting-2))"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3 data-en>Quality</h3><h3 data-ar>الجودة</h3>
+        <p data-en>International standards, delivered without compromise.</p>
+        <p data-ar>معايير عالمية تُنفَّذ دون تنازل.</p>
+      </div>
+      <div class="value reveal">
+        <div class="ico" style="background:linear-gradient(135deg,var(--c-realestate),var(--c-realestate-2))"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h3 data-en>Innovation</h3><h3 data-ar>الابتكار</h3>
+        <p data-en>Smarter tools and ideas that move us forward.</p>
+        <p data-ar>أدوات وأفكار أذكى تدفعنا للأمام.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <h2 data-en>Let's build what's next.</h2>
+    <h2 data-ar>لنبنِ ما هو قادم.</h2>
+    <p data-en>Talk to our team about partnerships, projects, and opportunities across all five divisions.</p>
+    <p data-ar>تحدّث مع فريقنا حول الشراكات والمشاريع والفرص في قطاعاتنا الخمسة.</p>
+    <div class="hero__cta" style="justify-content:center">
+      <a class="btn btn--primary" href="mailto:info@firstenergy.com"><span data-en>Email us</span><span data-ar>راسلنا</span></a>
+      <a class="btn btn--ghost" style="color:#fff;border-color:#333" href="tel:+9647814133635"><span data-en>Call us</span><span data-ar>اتصل بنا</span></a>
+    </div>
+    <a href="tel:+9647814133635" dir="ltr" style="display:inline-flex;align-items:center;gap:10px;margin-top:28px;color:#fff;font-size:clamp(20px,3vw,28px);font-weight:600;letter-spacing:.01em">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +964 781 413 3635
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="fmenu">
+    <a href="#oil" data-en>Oil Services</a><a href="#oil" data-ar>الخدمات النفطية</a>
+    <a href="#contracting" data-en>General Contracting</a><a href="#contracting" data-ar>المقاولات العامة</a>
+    <a href="#trading" data-en>General Trading</a><a href="#trading" data-ar>التجارة العامة</a>
+    <a href="#realestate" data-en>Real Estate</a><a href="#realestate" data-ar>العقارات</a>
+    <a href="#transport" data-en>Public Transport</a><a href="#transport" data-ar>النقل العام</a>
+  </div>
+  <div class="copyright">
+    <span data-en>© 2026 First Energy Group. All rights reserved.</span>
+    <span data-ar>© ٢٠٢٦ مجموعة الطاقة الأولى. جميع الحقوق محفوظة.</span>
+  </div>
+</footer>
+
+<script>
+  /* ---------- Language toggle ---------- */
+  const root = document.documentElement;
+  const btn = document.getElementById('langToggle');
+  function setLang(lang){
+    root.setAttribute('lang', lang);
+    root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    try{ localStorage.setItem('fe-lang', lang); }catch(e){}
+  }
+  btn.addEventListener('click', () => {
+    setLang(root.getAttribute('lang') === 'ar' ? 'en' : 'ar');
+  });
+  try{
+    const saved = localStorage.getItem('fe-lang');
+    if(saved){ setLang(saved); }
+    else if((navigator.language||'').toLowerCase().startsWith('ar')){ setLang('ar'); }
+  }catch(e){}
+
+  /* ---------- Scroll reveal ---------- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
