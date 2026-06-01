@@ -18,21 +18,10 @@ Each section has its own color theme, image, and activity chips.
 - 📄 100% self-contained in `index.html` — no build step, no dependencies
 
 ## Deploy on GitHub Pages
-1. Create a new repository and upload `index.html` (and this `README.md`).
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-4. Select branch `main` and folder `/ (root)`, then **Save**.
-5. Your site will be live at `https://github.com/Al-Khlewee/first-energy-website` and the Pages URL will be `https://al-khlewee.github.io/first-energy-website/` once Pages is enabled.
-
-### Quick command-line version
-```bash
-git init
-git add index.html README.md
-git commit -m "First Energy bilingual website"
-git branch -M main
-git remote add origin https://github.com/Al-Khlewee/first-energy-website.git
-git push -u origin main
-```
+1. Go to **Settings → Pages** in the repository.
+2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+3. Pushes to `main` will deploy automatically through `.github/workflows/pages.yml`.
+4. Once Pages is enabled, the live site will be available at `https://al-khlewee.github.io/first-energy-website/`.
 
 ## Customize
 - **Images:** replace the Unsplash URLs in each `<section>` with your own photos (e.g. `images/oil.jpg`).
